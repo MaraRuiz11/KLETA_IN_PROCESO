@@ -8,10 +8,23 @@
 }
 
 :root{
-    --bg:#f5f5f5;  /* backbround o fondo de la pagina */
-    --text:#00ff44;   /* #101010; color de texto */
+    --bg:#f5f5f5;             /* backbround o fondo de la pagina */
+    --text:#ffa600;           /* #101010; color de texto */
+    --sidebar-w: 220px;         /*Ancho del menú (sidebar) izquierda */
+    --sidebar-icons: 64px;      /* solo se muestra en la tablet el icono */
+    --sidebar-bg:#FFFFFF;     /*Color del fondod el sidebar*/
+    --muted: #999;            /* Texto-Secundario */
 }
 
-.main-content{
-    color: var(--text)
+body{
+    font-family: Poppins;
+    background-color: var(--bg); /*Color de fondo*/
+    color: var(--text) /* color del texto */
+}
+
+/* EMPEZAMOS A EDITAR EL SIBEDAR */
+.topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* sepacion de esquina a esquina */
 }
