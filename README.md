@@ -110,60 +110,88 @@ Un prestamo puede generar muchos cobros, pero un cobro pertenece a un solo prest
 El sistema cuenta con 4 tablas principales:
 
 ```sql
-CREATE DATABASE IF NOT EXISTS gota_a_gota;
-USE gota_a_gota;
+CREATE DATABASE restaurante_kleta;
 
-CREATE TABLE cobrador (
-    cobrador_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    telefono VARCHAR(15),
-    email VARCHAR(100)
+USE restaurante_kleta;
+
+CREATE TABLE Cliente (
+ID_Cliente INT PRIMARY KEY AUTO_INCREMENT,
+Nombre VARCHAR(100),
+DNI VARCHAR(8),
+Telefono VARCHAR(15)
 );
 
-CREATE TABLE cliente (
-    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    dni VARCHAR(8) NOT NULL UNIQUE,
-    telefono VARCHAR(15),
-    direccion VARCHAR(255)
+CREATE TABLE Producto (
+ID_Producto INT PRIMARY KEY AUTO_INCREMENT,
+Nombre_Producto VARCHAR(100),
+Tipo_Producto VARCHAR(50),
+Precio DECIMAL(10,2),
+Stock INT
 );
 
-CREATE TABLE prestamo (
-    prestamo_id INT AUTO_INCREMENT PRIMARY KEY,
-    cobrador_id INT NOT NULL,
-    cliente_id INT NOT NULL,
-    monto_total DECIMAL(10,2) NOT NULL,
-    monto_cuota DECIMAL(10,2) NOT NULL,
-    num_cuotas INT NOT NULL,
-    fecha_inicio DATE NOT NULL,
-    estado ENUM('activo', 'pagado') DEFAULT 'activo',
-    FOREIGN KEY (cobrador_id) REFERENCES cobrador(cobrador_id),
-    FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
+CREATE TABLE Venta (
+ID_Venta INT PRIMARY KEY AUTO_INCREMENT,
+Fecha DATE,
+Total DECIMAL(10,2),
+ID_Cliente INT,
+FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
 );
 
-CREATE TABLE cobro (
-    cobro_id INT AUTO_INCREMENT PRIMARY KEY,
-    prestamo_id INT NOT NULL,
-    fecha_cobro DATE NOT NULL,
-    monto_cobrado DECIMAL(10,2) NOT NULL,
-    estado ENUM('pagado', 'pendiente') DEFAULT 'pendiente',
-    FOREIGN KEY (prestamo_id) REFERENCES prestamo(prestamo_id)
+CREATE TABLE Detalle_Venta (
+ID_Detalle INT PRIMARY KEY AUTO_INCREMENT,
+ID_Venta INT,
+ID_Producto INT,
+Cantidad INT,
+Subtotal DECIMAL(10,2),
+FOREIGN KEY (ID_Venta) REFERENCES Venta(ID_Venta),
+FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
 );
 
-
-INSERT INTO cliente (nombre, apellido, dni, telefono, direccion) VALUES
-('Juan', 'Perez', '12345678', '961234567', 'Jr. Inmaculada 123, Pucallpa'),
-('Maria', 'Garcia', '23456789', '962345678', 'Av. Centenario 456, Pucallpa'),
-('Carlos', 'Lopez', '34567890', '963456789', 'Jr. Ucayali 789, Pucallpa'),
-('Rosa', 'Martinez', '45678901', '964567890', 'Av. Tupac Amaru 321, Pucallpa'),
-('Pedro', 'Sanchez', '56789012', '965678901', 'Jr. 7 de Junio 654, Pucallpa'),
-('Ana', 'Torres', '67890123', '966789012', 'Av. Yarinacocha 987, Pucallpa'),
-('Luis', 'Flores', '78901234', '967890123', 'Jr. Progreso 147, Pucallpa'),
-('Carmen', 'Ramirez', '89012345', '968901234', 'Av. Sáenz Peña 258, Pucallpa'),
-('Jorge', 'Diaz', '90123456', '969012345', 'Jr. Coronel Portillo 369, Pucallpa'),
-('Sandra', 'Vega', '01234567', '960123456', 'Av. Nueva Requena 741, Pucallpa');
+-- INSERCION DE CLIENTES
+INSERT INTO Cliente (Nombre, DNI, Telefono) VALUES
+    ('Carlos Perez', '12345678', '987654321'),
+  	('Maria Lopez', '87654321', '912345678'),
+ 	('Juan Torres', '11223344', '999888777');
+-- INSERCION DE PRODUCTOS
+INSERT INTO Producto (Nombre_Producto, Tipo_Producto, Precio, Stock) VALUES
+  	('Jugo de Maracuya', 'Bebida', 3.50, 50),
+  	('Sandwich de Pollo', 'Comida', 5.00, 30),
+  	('Tamal Verde', 'Comida', 4.00, 20),
+  	('Juane de Arroz', 'Comida', 8.00, 15),
+  	('Menu del Dia', 'Menu', 12.00, 40);
+-- INSERCION DE VENTAS
+INSERT INTO Venta (Fecha, Total, ID_Cliente) VALUES
+ 	('2026-03-10', 17.00, 1),
+  	('2026-03-10', 12.00, 2),
+  	('2026-03-11', 20.50, 3);
+-- INSERCION DE DETALLE DE VENTAS
+INSERT INTO Detalle_Venta (ID_Venta, ID_Producto, Cantidad, Subtotal) VALUES
+ 	(1, 2, 2, 10.00),
+ 	(1, 1, 2, 7.00),
+    (2, 5, 1, 12.00),
+  	(3, 4, 1, 8.00),
+  	(3, 3, 3, 12.50);
+-- CONSULTA 1: Ventas con nombre del cliente (JOIN + ORDER BY)
+SELECT V.ID_Venta, C.Nombre, V.Fecha, V.Total
+FROM Venta V
+INNER JOIN Cliente C ON V.ID_Cliente = C.ID_Cliente
+ORDER BY V.Fecha;
+-- CONSULTA 2: Detalle de productos por venta (JOIN + WHERE)
+SELECT D.ID_Venta, P.Nombre_Producto, D.Cantidad, D.Subtotal
+FROM Detalle_Venta D
+INNER JOIN Producto P ON D.ID_Producto = P.ID_Producto
+WHERE D.ID_Venta = 1;
+-- CONSULTA 3: Productos mas vendidos (JOIN + GROUP BY + ORDER BY)
+SELECT P.Nombre_Producto, SUM(D.Cantidad) AS Total_Vendido
+FROM Detalle_Venta D
+INNER JOIN Producto P ON D.ID_Producto = P.ID_Producto
+GROUP BY P.Nombre_Producto
+ORDER BY Total_Vendido DESC;
+-- CONSULTA 4: Ventas con total mayor a S/15.00 (WHERE + ORDER BY)
+SELECT V.ID_Venta, C.Nombre, V.Fecha, V.Total
+FROM Venta V
+INNER JOIN Cliente C ON V.ID_Cliente = C.ID_Cliente
+WHERE V.Total > 15.00
 
 
 ```
