@@ -72,7 +72,7 @@ JavaWeb-Restaurante Jugeria "KLETA"/
 ---
 
 ### DIAGRAMA DE FIGMA UI/UX (falta enlace figma)
-![FIGMA](https://www.figma.com/design/BXoCcKRR9FjiXnO5TxFhuK/Proyecto-Senati?node-id=1-7&t=OXx4vC4zMc8uVobf-1)
+![FIGMA](https://www.figma.com/design/8hbmitxV0MmRMeIOPdFwlD/Proyecto_Senati?node-id=1-2&p=f&t=4svsOGBd4fTzjtsD-0)
 
 ## Base de datos
  
@@ -85,10 +85,10 @@ El sistema cuenta con 4 tablas principales:
 | CAJERO | Registra de cada pago de los clientes y guarda en la caja |
 
 ### Diagrama Entidad-Relacion (DER)
-![Diagrama Entidad Relacion](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Diagrama_Entidad_Relacion.png)
+![Diagrama Entidad Relacion](https://github.com/MaraRuiz11/KLETA_IN_PROCESO/blob/main/imagen_png/Diagrama_Entidad_Relaci%C3%B3n.png)
  
 ### Modelo Relacional (MR)
-![Modelo Relacional](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Modelo_Relacional.png)
+![Modelo Relacional](https://github.com/MaraRuiz11/KLETA_IN_PROCESO/blob/main/imagen_png/Modelo_Relacional.png)
 
 ### Cardinalidades
 COBRADOR — PRESTAMO (1:N) <br>
