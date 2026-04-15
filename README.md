@@ -21,11 +21,11 @@ Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL qu
 ## Requerimientos Funcionales
 | Codigo | Descripcion |
 |---|---|
-| RF01 | El sistema debe permitir registrar un nuevo cliente con nombre, apellido, DNI, telefono y direccion |
-| RF02 | El sistema debe permitir registrar un nuevo prestamo indicando monto total, cuota, numero de cuotas y fecha de inicio |
-| RF03 | El sistema debe permitir registrar el cobro diario de un cliente asociado a su prestamo |
-| RF04 | El sistema debe mostrar el listado de todos los clientes con su estado de deuda |
-| RF05 | El sistema debe mostrar el historial de cobros realizados por prestamo |
+| RF01 | El sistema debe permitir registrar un nuevo cliente con nombre, apellido, DNI y telefono. |
+| RF02 | El sistema debe permitir registrar un nuevo cliente indicando su nombre completo, DNI, telefono. |
+| RF03 | El sistema debe permitir registrar el cobro diario de los consumos diarios |
+| RF04 | El sistema debe mostrar el listado de todos los productos que se vende al momento. |
+| RF05 | El sistema debe mostrar el historial de consumos diarios. |
  
 ## Requerimientos No Funcionales
  
@@ -58,7 +58,7 @@ Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL qu
 ## Estructura del proyecto
  
 ```
-JavaWeb-GotaGota/
+JavaWeb-Restaurante Jugeria "KLETA"/
 ├── backend/          → Spring Boot (Java)
 │   ├── src/
 │   ├── pom.xml
@@ -71,7 +71,7 @@ JavaWeb-GotaGota/
  
 ---
 
-### DIAGRAMA DE FIGMA UI/UX
+### DIAGRAMA DE FIGMA UI/UX (falta enlace figma)
 ![FIGMA](https://www.figma.com/design/BXoCcKRR9FjiXnO5TxFhuK/Proyecto-Senati?node-id=1-7&t=OXx4vC4zMc8uVobf-1)
 
 ## Base de datos
@@ -80,10 +80,9 @@ El sistema cuenta con 4 tablas principales:
  
 | Tabla | Descripcion |
 |---|---|
-| COBRADOR | Personas encargadas de gestionar y cobrar los prestamos |
-| CLIENTE | Personas que solicitan el prestamo |
-| PRESTAMO | Registro de cada prestamo otorgado |
-| COBRO | Registro de cada pago diario realizado |
+| DUEÑO | Persona encargadas de gestionar y cantabilizar los consumos diarios, semanales y mesuales |
+| CLIENTE | Personas que consumen los aliemtos realizado por el restaurante |
+| CAJERO | Registra de cada pago de los clientes y guarda en la caja |
 
 ### Diagrama Entidad-Relacion (DER)
 ![Diagrama Entidad Relacion](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Diagrama_Entidad_Relacion.png)
