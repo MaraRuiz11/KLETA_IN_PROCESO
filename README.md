@@ -71,7 +71,7 @@ JavaWeb-Restaurante Jugeria "KLETA"/
  
 ---
 
-### DIAGRAMA DE FIGMA UI/UX (falta enlace figma)
+### DIAGRAMA DE FIGMA UI/UX
 ![FIGMA](https://www.figma.com/design/8hbmitxV0MmRMeIOPdFwlD/Proyecto_Senati?node-id=1-2&p=f&t=4svsOGBd4fTzjtsD-0)
 
 ## Base de datos
@@ -91,18 +91,18 @@ El sistema cuenta con 4 tablas principales:
 ![Modelo Relacional](https://github.com/MaraRuiz11/KLETA_IN_PROCESO/blob/main/imagen_png/Modelo_Relacional.png)
 
 ### Cardinalidades
-COBRADOR — PRESTAMO (1:N) <br>
-Un cobrador puede gestionar muchos prestamos, pero un prestamo es gestionado por un solo cobrador. <br>
-CLIENTE — PRESTAMO (1:N) <br>
-Un cliente puede solicitar muchos prestamos, pero un prestamo pertenece a un solo cliente. <br>
-PRESTAMO — COBRO (1:N) <br>
-Un prestamo puede generar muchos cobros, pero un cobro pertenece a un solo prestamo.
+VENTA — CLIENTE (1:N) <br>
+Un cliente puede realizar muchos ventas. <br>
+DETALLE_VENTA — VENTA (1:N) <br>
+Una venta contiene uno a muchas ventas. <br>
+DETALLE_VENTA — PRODUCTO (1:N) <br>
+Un producto puede aparecer en muchos detalles de venta.
 
 | Entidad A | Relacion | Entidad B | Cardinalidad |
 |---|---|---|---|
-| COBRADOR | gestiona | PRESTAMO | 1:N |
-| CLIENTE | solicita | PRESTAMO | 1:N |
-| PRESTAMO | genera | COBRO | 1:N |
+| VENTA | contiene | CLIENTE | 1:N |
+| DETALLE_VENTA | contiene | VENTE | 1:N |
+| DETALLE_VENTA | aparece | PRODUCTO | 1:N |
 
 
 ### Base de datos
