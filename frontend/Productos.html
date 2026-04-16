@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="Es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Panel de Administración</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- TOPBAR (solo visible en móvil) -->
+    <div class="topbar">
+        <div class="title-business">
+            <span>Restaurante Jueria "KLETA"</span>
+        </div>
+        <div class="btn-menu">
+            <button class="hamburger" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <ul>
+                <li>
+                    <span>REST. JUGERIA "KLETA"</span>
+                </li>
+                <li>
+                    <span>RUC: 10633118391</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul>
+            <li>
+                <span>PRINCIPAL</span>
+                </a>
+            </li>
+            <li>
+                <a href="inicio.html" data-page="home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <span>GESTION</span>
+                </a>
+            </li>
+            <li>
+                <a href="clientes.html" class="activo" data-page="home">  
+                    <span>👥 Clientes</span>
+                </a>
+            </li>
+            <li>
+                <a href="Productos.html" data-page="reportes">
+                    <span>🍽️ Productos</span>
+                </a>
+            </li>
+            <li>
+                <a href="ventas.html" data-page="reportes">
+                    <span>🧾 Ventas</span>
+                </a>
+            </li>
+            <li>
+                <a href="detalle_venta.html" data-page="reportes">
+                    <span>📋 Detalle Venta</span>
+                </a>
+            </li>
+            <li class="nav-logout">
+                <a href="#" id="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <nav class="breadcrumb">
+            <span id="breadcrumb-page">Inicio</span>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span id="breadcrumb-page">Clientes</span>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span id="breadcrumb-page">Productos</span>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span id="breadcrumb-page">Ventas</span>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span id="breadcrumb-page">Detalle Venta</span>
+        </nav>
+
+        <!-- CUATRO TABLAS CLIENTE, PLATILLOS, VENTAS y INGRESOS-->
+        <div class="dashboard">
+            
+            <!-- CLIENTES -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon clientes">👥</span>
+                    <span>CLIENTES</span>
+                </div>
+                <h3 id="total-clientes">5</h3>
+            </div>
+
+            <!-- PLATILLOS -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon platillos">🍽️</span>
+                    <span>PLATILLOS</span>
+                </div>
+                <h3 id="total-productos">14</h3>
+            </div>
+
+            <!-- VENTAS -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon ventas">🧾</span>
+                    <span>VENTAS</span>
+                </div>
+                <h3 id="total-ventas">5</h3>
+            </div>
+
+            <!-- INGRESOS -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon ingresos">📋</span>
+                    <span>INGRESOS</span>
+                </div>
+                <h3 id="total-ingresos">S/ 145.00</h3>
+            </div>
+
+        </div>
+
+
+        <div class="main-content">
+            <div class="mb-2 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">PRODUCTOS</h4>
+                <button class="btn btn-primary">REGISTRAR</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID_Producto</th>
+                            <th>Nombre_Producto</th>
+                            <th>Tipo_Producto</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-producto">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
