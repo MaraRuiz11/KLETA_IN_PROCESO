@@ -31,7 +31,6 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <img src="imagen/sin-fondo.webp" alt="Logo KLETA" class="logo-img">
             <ul>
                 <li>
                     <span>REST. JUGERIA "KLETA"</span>
@@ -58,27 +57,23 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="activo" data-page="home">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Clientes</span>
+                <a href="#" class="activo" data-page="home">   
+                    <span>👥 Clientes</span>
                 </a>
             </li>
             <li>
                 <a href="#" data-page="reportes">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                    <span>Productos</span>
+                    <span>🍽️ Productos</span>
                 </a>
             </li>
             <li>
                 <a href="#" data-page="reportes">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                    <span>Ventas</span>
+                    <span>🧾 Ventas</span>
                 </a>
             </li>
             <li>
                 <a href="#" data-page="reportes">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                    <span>Detalle Venta</span>
+                    <span>📋 Detalle Venta</span>
                 </a>
             </li>
             <li class="nav-logout">
@@ -103,47 +98,61 @@
             <i class="fa-solid fa-chevron-right"></i>
             <span id="breadcrumb-page">Detalle Venta</span>
         </nav>
-        <div class="main-content">
-            <div class="mb-2 d-flex justify-content-between align-items-center">
-                <h4 class="mb-0">REPORTE DE CLIENTES</h4>
-                <button class="btn btn-primary">REGISTRAR</button>
-            </div>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>DNI</th>
-                            <th>Telefono</th>
-                            <th>Dirección</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-cliente">
 
-                    </tbody>
-                </table>
-            </div>
+        <!-- CUATRO TABLAS CLIENTE, PLATILLOS, VENTAS y INGRESOS-->
+        <div class="dashboard">
             
+            <!-- CLIENTES -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon clientes">👥</span>
+                    <span>CLIENTES</span>
+                </div>
+                <h3 id="total-clientes">5</h3>
+            </div>
+
+            <!-- PLATILLOS -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon platillos">🍽️</span>
+                    <span>PLATILLOS</span>
+                </div>
+                <h3 id="total-productos">14</h3>
+            </div>
+
+            <!-- VENTAS -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon ventas">🧾</span>
+                    <span>VENTAS</span>
+                </div>
+                <h3 id="total-ventas">5</h3>
+            </div>
+
+            <!-- INGRESOS -->
+            <div class="card-dashboard">
+                <div class="card-header">
+                    <span class="icon ingresos">📋</span>
+                    <span>INGRESOS</span>
+                </div>
+                <h3 id="total-ingresos">S/ 145.00</h3>
+            </div>
+
         </div>
+
         <div class="main-content">
             <div class="mb-2 d-flex justify-content-between align-items-center">
-                <h4 class="mb-0">REPORTE DE CLIENTES</h4>
+                <h4 class="mb-0">CLIENTES</h4>
                 <button class="btn btn-primary">REGISTRAR</button>
             </div>
             <div class="table-responsive">
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
+                            <th>ID_Cliente</th>
+                            <th>Nombre y Apellido</th>
                             <th>DNI</th>
                             <th>Telefono</th>
-                            <th>Dirección</th>
-                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-cliente">
@@ -151,7 +160,84 @@
                     </tbody>
                 </table>
             </div>
-            
+
+        </div>
+
+        <div class="sidebar-linea"></div>
+
+        <div class="main-content">
+            <div class="mb-2 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">PRODUCTOS</h4>
+                <button class="btn btn-primary">REGISTRAR</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID_Producto</th>
+                            <th>Nombre_Producto</th>
+                            <th>Tipo_Producto</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-producto">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="sidebar-linea"></div>
+
+        <div class="main-content">
+            <div class="mb-2 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">VENTAS</h4>
+                <button class="btn btn-primary">REGISTRAR</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID_Venta</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Cliente</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-venta">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="sidebar-linea"></div>
+
+        <div class="main-content">
+            <div class="mb-2 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">DETALLE DE VENTA</h4>
+                <button class="btn btn-primary">REGISTRAR</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID_Detalle</th>
+                            <th>Venta</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-detalle">
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </main>
 

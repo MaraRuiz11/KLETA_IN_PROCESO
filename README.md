@@ -15,7 +15,7 @@ Justificacion: Se necesita un sistema digital para reemplazar el cuaderno manual
 
 ## Identificar el problema y solución
 Problema: La persona encargada de llevar el registro de venta y pensionistas en un cuaderno o en papel, lo que genera errores, perdida de informacion, dificultad para saber cuanto debe cada cliente y cuantos pensionistas llegaron a comer ese dia. <br>
-Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL que permita registrar clientes, "falta completar esta informacion" //prestamos y cobros diarios, mostrando en todo momento el estado de cada prestamo y el historial de pagos.//
+Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL que permita registrar clientes, cobros diarios, semanales y mensuales, mostrando en todo momento el estado de cada pedido y el historial de pagos.
 
  
 ## Requerimientos Funcionales
@@ -221,7 +221,7 @@ WHERE V.Total > 15.00
 > El frontend y el backend corren por separado.
 > El backend debe estar iniciado antes de abrir el frontend.
  
-### Configuracion de base de datos
+### Configuracion de base de datos( FALTA ESTE APARTADO )
 ```
 spring.application.name=gotagota
 # CONEXION A MYSQL

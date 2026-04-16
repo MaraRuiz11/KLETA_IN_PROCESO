@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // alt + 96
         let fila = `
                             <tr>
-                            <td>${cliente.id}</td>
+                            <td>${cliente.id_cliente}</td>
                             <td>${cliente.nombre}</td>
                             <td>${cliente.apellido}</td>
                             <td>${cliente.dni}</td>

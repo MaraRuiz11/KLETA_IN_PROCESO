@@ -68,7 +68,7 @@ JSON es un lenguaje neutral que tanto Java como JavaScript entienden. Spring Boo
 > *El molde.*
 
 Le dice a Java cómo es un cliente. Tiene los mismos campos que la tabla en MySQL:
-`nombre`, `apellido`, `dni`, `telefono`, `direccion`.
+`ID_Cliente`, `nombre y apellido`, `dni`, `telefono`.
 
 Es como el formulario en blanco.
 
@@ -98,14 +98,14 @@ Por ejemplo, cuando el JS hace `fetch("/api/clientes")`, el Controller es el pri
 
 ---
 
-### `GotagotaApplication`
+### `RestauranteKletaApplication`
 > *El encendido del sistema.*
 
 Solo tiene el método `main()` que arranca todo Spring Boot. **No se toca.**
 
 ---
 
-## Anotaciones en Java (`@`)
+## Anotaciones en Java (`@`) (FALTA MODIFICAR)
 
 Las anotaciones son como **etiquetas** que le dan instrucciones a Spring Boot sobre qué hacer con cada clase o método.
 
