@@ -2,59 +2,28 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  fetch("http://localhost:8080/api/clientes")
+  fetch("http://localhost:8080/api/productos")
     .then((response) => response.json())
     .then((data) => {
-      // DOM -> <tbody id="table-cliente">
-      const elemento = document.getElementById("table-cliente");
+      // DOM -> <tbody id="table-producto">
+      const elemento = document.getElementById("table-productos");
       for (let i = 0; i < data.length; i++) {
-        //data[i], muestra en forma de array
-        let cliente = data[i];
-        // alt + 96
+        // data[i], muestra en forma de array
+        let producto = data[i];
+        // alt + 96 -> template literal (backtick)
         let fila = `
-                            <tr>
-                            <td>${cliente.id_cliente}</td>
-                            <td>${cliente.nombre}</td>
-                            <td>${cliente.apellido}</td>
-                            <td>${cliente.dni}</td>
-                            <td>${cliente.telefono}</td>
-                            <td>${cliente.direccion}</td>
-                            <td> 
-                                <button
-                                
-                                class="btn btn-outline-primary me-2">
-                                    <i class="fas fa-edit"></i> Editar
-                                </button>
-                                <button id="btnEliminar" data-idcliente = ${cliente.id} class="btn btn-outline-danger">
-                                    <i class="fas fa-trash"></i> Eliminar
-                                </button>
-                            </td>
-                            </tr>                
-                           `;
+          <tr>
+            <td>${producto.id_producto}</td>
+            <td>${producto.nombre_producto}</td>
+            <td>${producto.tipo_producto}</td>
+            <td>S/ ${producto.precio.toFixed(2)}</td>
+          </tr>
+        `;
         elemento.innerHTML += fila;
       }
+    })
+    .catch((error) => {
+      console.error("Error al cargar productos:", error);
     });
 
-});
-
-// EVENTO DE CLICK EN JAVASCRIPT
-//Creamos una variable que almacene el DOM de ese elemento del boton
-document.addEventListener("click", function (e) {
-  const btnDelete = e.target.closest("#btnEliminar");
-    if (btnDelete) { //TRUE o 1
-        alert("Eliminando...");
-        const id = btnDelete.dataset.idcliente;
-        //console.log(id) para en consola que ID es nada mas
-        //fetch("http://localhost:8080/api/clientes/"+id, {
-        fetch(`http://localhost:8080/api/clientes/${id}`, {
-          method: 'DELETE'
-        })
-        .then(response => {
-            if (response.ok) {
-              alert('Cliente eliminado correctamente');
-              location.reload(); // Recargar la página para reflejar los cambios
-            } else {
-              alert('Error al eliminar el cliente');
-        }})
-    }
 });
