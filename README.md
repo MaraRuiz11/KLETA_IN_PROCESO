@@ -114,85 +114,50 @@ CREATE DATABASE restaurante_kleta;
 
 USE restaurante_kleta;
 
-CREATE TABLE Cliente (
-ID_Cliente INT PRIMARY KEY AUTO_INCREMENT,
-Nombre VARCHAR(100),
-DNI VARCHAR(8),
-Telefono VARCHAR(15)
-);
-
 CREATE TABLE Producto (
-ID_Producto INT PRIMARY KEY AUTO_INCREMENT,
-Nombre_Producto VARCHAR(100),
-Tipo_Producto VARCHAR(50),
-Precio DECIMAL(10,2),
-Stock INT
+    ID_Producto INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Producto VARCHAR(100),
+    Tipo_Producto VARCHAR(50),
+    Precio DECIMAL(10,2)
 );
 
 CREATE TABLE Venta (
-ID_Venta INT PRIMARY KEY AUTO_INCREMENT,
-Fecha DATE,
-Total DECIMAL(10,2),
-ID_Cliente INT,
-FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
+    ID_Venta INT PRIMARY KEY AUTO_INCREMENT,
+    Fecha DATE,
+    Total DECIMAL(10,2)
 );
 
 CREATE TABLE Detalle_Venta (
-ID_Detalle INT PRIMARY KEY AUTO_INCREMENT,
-ID_Venta INT,
-ID_Producto INT,
-Cantidad INT,
-Subtotal DECIMAL(10,2),
-FOREIGN KEY (ID_Venta) REFERENCES Venta(ID_Venta),
-FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
+    ID_Detalle INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Venta INT,
+    ID_Producto INT,
+    Cantidad INT,
+    Subtotal DECIMAL(10,2),
+    FOREIGN KEY (ID_Venta) REFERENCES Venta(ID_Venta),
+    FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
 );
 
--- INSERCION DE CLIENTES
-INSERT INTO Cliente (Nombre, DNI, Telefono) VALUES
-    ('Carlos Perez', '12345678', '987654321'),
-  	('Maria Lopez', '87654321', '912345678'),
- 	('Juan Torres', '11223344', '999888777');
 -- INSERCION DE PRODUCTOS
-INSERT INTO Producto (Nombre_Producto, Tipo_Producto, Precio, Stock) VALUES
-  	('Jugo de Maracuya', 'Bebida', 3.50, 50),
-  	('Sandwich de Pollo', 'Comida', 5.00, 30),
-  	('Tamal Verde', 'Comida', 4.00, 20),
-  	('Juane de Arroz', 'Comida', 8.00, 15),
-  	('Menu del Dia', 'Menu', 12.00, 40);
+INSERT INTO Producto (Nombre_Producto, Tipo_Producto, Precio) VALUES
+    ('Jugo de Maracuya', 'Bebida', 3.50),
+    ('Sandwich de Pollo', 'Comida', 5.00),
+    ('Tamal Verde', 'Comida', 4.00),
+    ('Juane de Arroz', 'Comida', 8.00),
+    ('Menu del Dia', 'Menu', 12.00);
+
 -- INSERCION DE VENTAS
-INSERT INTO Venta (Fecha, Total, ID_Cliente) VALUES
- 	('2026-03-10', 17.00, 1),
-  	('2026-03-10', 12.00, 2),
-  	('2026-03-11', 20.50, 3);
+INSERT INTO Venta (Fecha, Total) VALUES
+    ('2026-03-10', 17.00),
+    ('2026-03-10', 12.00),
+    ('2026-03-11', 20.50);
+
 -- INSERCION DE DETALLE DE VENTAS
 INSERT INTO Detalle_Venta (ID_Venta, ID_Producto, Cantidad, Subtotal) VALUES
- 	(1, 2, 2, 10.00),
- 	(1, 1, 2, 7.00),
+    (1, 2, 2, 10.00),
+    (1, 1, 2, 7.00),
     (2, 5, 1, 12.00),
-  	(3, 4, 1, 8.00),
-  	(3, 3, 3, 12.50);
--- CONSULTA 1: Ventas con nombre del cliente (JOIN + ORDER BY)
-SELECT V.ID_Venta, C.Nombre, V.Fecha, V.Total
-FROM Venta V
-INNER JOIN Cliente C ON V.ID_Cliente = C.ID_Cliente
-ORDER BY V.Fecha;
--- CONSULTA 2: Detalle de productos por venta (JOIN + WHERE)
-SELECT D.ID_Venta, P.Nombre_Producto, D.Cantidad, D.Subtotal
-FROM Detalle_Venta D
-INNER JOIN Producto P ON D.ID_Producto = P.ID_Producto
-WHERE D.ID_Venta = 1;
--- CONSULTA 3: Productos mas vendidos (JOIN + GROUP BY + ORDER BY)
-SELECT P.Nombre_Producto, SUM(D.Cantidad) AS Total_Vendido
-FROM Detalle_Venta D
-INNER JOIN Producto P ON D.ID_Producto = P.ID_Producto
-GROUP BY P.Nombre_Producto
-ORDER BY Total_Vendido DESC;
--- CONSULTA 4: Ventas con total mayor a S/15.00 (WHERE + ORDER BY)
-SELECT V.ID_Venta, C.Nombre, V.Fecha, V.Total
-FROM Venta V
-INNER JOIN Cliente C ON V.ID_Cliente = C.ID_Cliente
-WHERE V.Total > 15.00
-
+    (3, 4, 1, 8.00),
+    (3, 3, 3, 12.50);
 
 ```
 
