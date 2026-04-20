@@ -138,6 +138,7 @@
                             <th>Nombre_Producto</th>
                             <th>Tipo_Producto</th>
                             <th>Precio</th>
+                            <th>Operciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-producto">
@@ -150,7 +151,42 @@
         
 
     </main>
-
+    <!-- Modal -->
+<div class="modal fade" id="registrarProductoModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">REGISTRAR PRODUCTO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formProducto">
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Nombre Producto</label>
+                        <input type="text" class="form-control" id="nombreProducto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipoProducto" class="form-label">Tipo Producto</label>
+                        <select class="form-select" id="tipoProducto" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="Bebida">Bebida</option>
+                            <option value="Comida">Comida</option>
+                            <option value="Menu">Menu</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" step="0.01" class="form-control" id="precio" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+                <button type="button" class="btn btn-primary" id="guardarProductoBtn">GUARDAR</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <script src="js/main.js"></script>

@@ -10,8 +10,9 @@ import java.math.BigDecimal;
 public class Producto {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremental
     @Column(name = "ID_Producto")
-    private String IDproducto;
+    private Integer IDproducto;  // Cambia de String a Integer
 
     @Column(name = "Nombre_Producto")
     private String nombreProducto;
@@ -26,11 +27,11 @@ public class Producto {
     public Producto() {}
 
 
-    public String getIDproducto() {
+    public Integer getIDproducto() {
         return IDproducto;
     }
 
-    public void setIDproducto(String IDproducto) {
+    public void setIDproducto(Integer IDproducto) {
         this.IDproducto = IDproducto;
     }
 

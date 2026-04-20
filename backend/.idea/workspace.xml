@@ -4,59 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="972ffba7-2fa7-4f41-a9d8-ee4be2a30a8b" name="Changes" comment="" />
+    <list default="true" id="78114f03-5c21-46bc-a301-d39c743d01c0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/RestauranteKleta.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RestauranteKleta/.idea/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/controller/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/entity/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/entity/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/repository/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/repository/ProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/service/ProdcutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/senati/RestauranteKleta/service/ProdcutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Productos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/js/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5,
-  &quot;fromUser&quot;: false
-}</component>
-  <component name="ProjectId" id="3CV3xsgx54q1pe2pSs0z6qqkAec" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.RestauranteKletaApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PC/Documents/GitHub/KLETA_IN_PROCESO/backend"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="972ffba7-2fa7-4f41-a9d8-ee4be2a30a8b" name="Changes" comment="" />
-      <created>1776457160899</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1776457160899</updated>
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
 </project>

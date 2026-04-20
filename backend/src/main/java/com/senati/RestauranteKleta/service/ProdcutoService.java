@@ -19,4 +19,17 @@ public class ProdcutoService {
         return productoRepository.findAll();
 
     }
+
+    // Metodo para guardar un producto
+    public Producto guardarProducto(Producto producto) {
+        return productoRepository.save(producto);
+    }
+
+    public void eliminarProducto(Integer id) {  // Integer
+        productoRepository.deleteById(id);
+    }
+
+    public Producto obtenerProductoPorId(Integer id) {  // Integer
+        return productoRepository.findById(id).orElse(null);
+    }
 }
